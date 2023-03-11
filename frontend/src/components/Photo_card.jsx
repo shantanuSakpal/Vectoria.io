@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 function PhotoCard({ data, caption, email, location }) {
+    const [username, setUsername] = useState(null)
     let base64String
     if (data) {
         base64String = btoa(
@@ -9,6 +10,17 @@ function PhotoCard({ data, caption, email, location }) {
         )
     }
 
+    useEffect(()=>{
+        const GetRequest = async () => {
+        const res = await fetch(`http://localhost:3001/user/user/one/${email}`)
+        const json = await res.json();
+        console.log(json)
+        setUsername(json.username)
+        }
+        GetRequest()
+    },[])
+
+    if(username)
     return (
         <>
             <div >
@@ -23,7 +35,7 @@ function PhotoCard({ data, caption, email, location }) {
                             <div>
                                 <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2">{caption}</h5>
                             </div>
-                            <p>{email}</p>
+                            <p>{username}</p>
                         </div>
                         <div >
 

@@ -16,7 +16,14 @@ router.get('/id/:id', function (req, res, next) {
     }).catch(next);
 });
 
-//Get UserSchema By User
+//Get One UserSchema by email
+router.get('/user/one/:email', function (req, res, next) {
+    UserSchema.findOne({email: req.params.email}).then(function(element){
+        res.send(element);
+    }).catch(next);
+});
+
+//Get all UserSchema By email
 router.get('/user/:email', function (req, res, next) {
     UserSchema.find({email: req.params.email}).then(function(element){
         res.send(element);
