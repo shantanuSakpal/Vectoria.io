@@ -12,7 +12,7 @@ export default function LoginPage() {
     const handleLogin = async (email, password) => {
         try {
             await login(email, password);
-            <Navigate to='/addblog' />
+            <Navigate to='/home' />
             console.log(email);
             setLogged(false);
             setLogged1(true);
@@ -65,5 +65,5 @@ export default function LoginPage() {
         </>
     )
     else 
-    return <Navigate to ='/'/>
+    return <Navigate to ='/home'/>
 }
