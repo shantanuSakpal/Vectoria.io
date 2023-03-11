@@ -1,6 +1,7 @@
 import React, { useRef, useContext, createContext } from 'react'
 import ApnaButton from '../components/ApnaButton';
 import UserAuth from '../context/UserAuth';
+import UploadPage from './Upload';
 import uuid from 'react-uuid';
 
 export default function Profile() {
@@ -53,6 +54,7 @@ export default function Profile() {
                     <ApnaButton onClick={PostRequest} text={"Create Profile"}/>
                 </div>
                 
+                <UploadPage/>
             </div>
         </>
     )

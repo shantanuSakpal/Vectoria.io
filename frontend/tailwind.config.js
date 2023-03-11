@@ -4,7 +4,8 @@ module.exports = {
 
     extend: {
       fontFamily: {
-        'vonique': ['vonique-bold', 'Arial Narrow', "Arial", "sans-serif"]
+        'vonique': ['vonique-bold', 'Arial Narrow', "Arial", "sans-serif"],
+        "body": ['Fira Sans', "sans-serif"]
       }
     },
   },
