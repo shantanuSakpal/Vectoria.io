@@ -23,7 +23,8 @@ function PhotoCard({ data, caption, email, location }) {
                             <div>
                                 <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2">{caption}</h5>
                             </div>
-                            <p>{email}</p>
+                            <p>By {email}</p>
+                            <p></p>
                         </div>
                         <div >
 
@@ -37,7 +38,7 @@ function PhotoCard({ data, caption, email, location }) {
                             </button></NavLink>
                         </div>
                     </div>
-                    <p>This card component is part of a larger, open-source library of Tailwind CSS components. Learn more by going to the official <a className="text-blue-600 hover:underline" target="_blank">Flowbite Documentation</a>.</p>
+
                 </div>
             </div>
         </>
