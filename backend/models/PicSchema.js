@@ -24,5 +24,8 @@ const ImageSchema = new Schema({
         tags:{
             type : Array,
         },
+        time : {
+            type : String
+        }
 });
 module.exports = mongoose.model('images', ImageSchema)

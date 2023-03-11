@@ -6,29 +6,32 @@ import UserAuth from "../context/UserAuth";
 
 function UploadPage() {
   const [file, setFile] = useState();
-  const {user} = UserAuth()
+  const { user } = UserAuth()
 
   const [formData, setFormData] = useState({
     caption: "",
     location: "",
-    id:uuid(),
+    id: uuid(),
     email: user.email,
+    email: "neilpshukla221203@gmail.com",
     tags: [],
   });
 
-  function handleSubmit() {
+
+
+  async function handleSubmit() {
     console.log("onsubmit");
     const sendingData = new FormData()
-    sendingData.append("image",file)
+    sendingData.append("image", file)
     console.log(user.email)
     console.log(formData)
     sendingData.append('objectData', JSON.stringify(formData))
 
-    fetch("http://localhost:3001/image/imagePost",{
-        method: "POST",
-        body:sendingData
-    }).then((res)=>{
-        console.log(res)
+    fetch("http://localhost:3001/image/imagePost", {
+      method: "POST",
+      body: sendingData
+    }).then((res) => {
+      console.log(res)
     })
   }
 
@@ -55,10 +58,10 @@ function UploadPage() {
           className="w-80 rounded-md p-2 bg-slate-200"
           type="text"
           placeholder="A cat standing in the rain"
-          onChange={(e) => setFormData((prev)=>{
+          onChange={(e) => setFormData((prev) => {
             return {
-                ...prev,
-                caption:e.target.value
+              ...prev,
+              caption: e.target.value
             }
           })}
         />
@@ -67,10 +70,10 @@ function UploadPage() {
           className="w-80 rounded-md p-2 bg-slate-200"
           type="text"
           placeholder="Eg. Mumbai"
-          onChange={(e) => setFormData((prev)=>{
+          onChange={(e) => setFormData((prev) => {
             return {
-                ...prev,
-                location:e.target.value
+              ...prev,
+              location: e.target.value
             }
           })}
         />
@@ -79,10 +82,10 @@ function UploadPage() {
           className="w-80 rounded-md p-2 mb-5 bg-slate-200"
           type="text"
           placeholder="Enter comma seperated tags"
-          onChange={(e) => setFormData((prev)=>{
+          onChange={(e) => setFormData((prev) => {
             return {
-                ...prev,
-                tags:e.target.value.split(',')
+              ...prev,
+              tags: e.target.value.split(',')
             }
           })}
         />
