@@ -10,7 +10,7 @@ export const Navbar = () => {
                     <NavLink>   <div href="/home" class="flex items-center">
 
                         <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-                        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">App Title</span>
+                        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">App Title</span>
 
                     </div> </NavLink>
                     <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -20,13 +20,13 @@ export const Navbar = () => {
                     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                         <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-black dark:border-gray-700">
                             <li>
-                                <NavLink href="#" class="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 dark:text-white hover:text-white" aria-current="page">Home</NavLink>
+                                <NavLink href="#" class="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 hover:text-white" aria-current="page">Home</NavLink>
                             </li>
                             <li>
-                                <NavLink href="#" class="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 dark:text-white hover:text-white" aria-current="page">Photographers Nearby</NavLink>
+                                <NavLink href="#" class="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 hover:text-white" aria-current="page">Photographers Nearby</NavLink>
                             </li>
                             <li>
-                                <NavLink href="/profile" class="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 dark:text-white hover:text-white" aria-current="page"><ImProfile className='text-gray-400 hover:text-white w-5 h-5' /></NavLink>
+                                <NavLink href="/profile" class="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 hover:text-white" aria-current="page"><ImProfile className='text-gray-400 hover:text-white w-5 h-5' /></NavLink>
                             </li>
 
                         </ul>

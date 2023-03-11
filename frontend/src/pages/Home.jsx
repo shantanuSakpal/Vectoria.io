@@ -1,7 +1,10 @@
 import React from 'react'
+import { AddImageBtn } from '../components/AddImageBtn'
 
 export const Home = () => {
     return (
-        <div>Home</div>
+        <div>
+            <AddImageBtn />
+        </div>
     )
 }
