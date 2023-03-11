@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-
+import { BiLike } from "react-icons/bi"
 const Gallery = ({ photo }) => {
     const [username, setUsername] = useState(null)
     let base64String
@@ -24,6 +24,61 @@ const Gallery = ({ photo }) => {
     const [hoveredPhoto, setHoveredPhoto] = useState(null);
 
 
+    const [like, setLike] = useState(photo.likes)
+    function handleLike() {
+        console.log(photo.likes)
+        if (photo.likes > 0)
+        //Increment like by 1
+        {
+            function PostRequest() {
+                fetch(`http://localhost:3001/image/like/${photo._id}`, {
+                    method: 'POST',
+                    mode: 'cors',
+                    body: JSON.stringify({
+                        id: photo.id,
+                        email: photo.email,
+                        location: photo.location,
+                        caption: photo.caption,
+                        tags: photo.tags,
+                        time: photo.time,
+                        likes: photo.likes + 1,
+
+                    }),
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                })
+            }
+            setLike(photo.likes + 1)
+            PostRequest()
+        }
+        else
+        //Send like =1
+        {
+            function PostRequest() {
+                fetch(`http://localhost:3001/image/like/${photo._id}`, {
+                    method: 'POST',
+                    mode: 'cors',
+                    body: JSON.stringify({
+                        id: photo.id,
+                        email: photo.email,
+                        location: photo.location,
+                        caption: photo.caption,
+                        tags: photo.tags,
+                        likes: 1
+                    }),
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                })
+            }
+            PostRequest()
+        }
+
+
+
+    }
+
     if (username)
         return (
 
@@ -44,10 +99,11 @@ const Gallery = ({ photo }) => {
                         <p className="text-lg font-bold">{photo.title}</p>
                         <p className="text-lg">{`Photographer: ${photo.email}`}</p>
                         <p className="text-lg">{`Location: ${photo.location}`}</p>
+                        <button className='p-1' onClick={handleLike}><BiLike className='w-7 h-7 ' /></button> {like}<br />
                         <NavLink to={`/locationimage/${photo.location}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center my-1" >
                             See More From {photo.location}
                         </button></NavLink>
-                        <NavLink to={`/locationimage/${photo.location}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-3 py-2 text-center inline-flex items-center my-1 text-sm" >
+                        <NavLink to={`/userprofile/${photo.email}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-3 py-2 text-center inline-flex items-center my-1 text-sm" >
                             See More From This Photographer
                         </button>
                         </NavLink>

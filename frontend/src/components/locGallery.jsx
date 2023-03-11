@@ -43,7 +43,7 @@ const LocGallery = ({ photo }) => {
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white transition duration-300">
                         <p className="text-lg font-bold">{photo.title}</p>
                         <p className="text-lg">{`Photographer: ${photo.email}`}</p>
-                        <NavLink to={`/locationimage/${photo.location}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-3 py-2 text-center inline-flex items-center my-1 text-sm" >
+                        <NavLink to={`/userprofile/${photo.email}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-3 py-2 text-center inline-flex items-center my-1 text-sm" >
                             See More From This Photographer
                         </button>
                         </NavLink>

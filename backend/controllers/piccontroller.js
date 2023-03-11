@@ -3,6 +3,7 @@ const router = express.Router()
 const axios = require('axios');
 const fs = require('fs');
 const multer = require("multer");
+const mongoose = require('mongoose')
 const ImageSchema = require("../models/PicSchema.js")
 
 // Get All ImageSchema
@@ -18,6 +19,7 @@ router.get('/id/:id', function (req, res, next) {
         res.send(element);
     }).catch(next);
 });
+
 
 //Get Images By Location
 router.get('/location/:location', function (req, res, next) {
@@ -112,6 +114,15 @@ router.put('/:id', function (req, res, next) {
     });
 });
 
+//Increase Likes
+router.post('/like/:_id',function(req,res,next){
+    ImageSchema.findOneAndUpdate({_id: req.params._id},req.body).then(function(element){
+        ImageSchema.findOne({_id: req.params._id}).then(function(element){
+            res.send(element);
+        }).catch((e)=>res.send(e));
+    });
+});
+
 // delete a ImageSchema 
 router.delete('/:id', function (req, res, next) {
     ImageSchema.findOneAndDelete({ id: req.params.id }).then(function (element) {
@@ -120,10 +131,10 @@ router.delete('/:id', function (req, res, next) {
 });
 
 // delete all ImageSchema
-router.delete('/', function (req, res, next) {
-    ImageSchema.deleteMany(req.body).then(function (element) {
-        res.send(element);
-    }).catch(next);
-});
+// router.delete('/', function (req, res, next) {
+//     ImageSchema.deleteMany(req.body).then(function (element) {
+//         res.send(element);
+//     }).catch(next);
+// });
 
 module.exports = router

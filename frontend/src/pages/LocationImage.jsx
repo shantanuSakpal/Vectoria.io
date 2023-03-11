@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 import UseImages from '../context/ImageContext'
-import Gallery from '../components/gallery'
 import LocGallery from '../components/locGallery'
 
 export default function LocationImage() {
@@ -10,7 +9,6 @@ export default function LocationImage() {
   useEffect(() => {
     getLocationImage(`http://localhost:3001/image/location/${location}`)
   }, [])
-  console.log(locationimage)
   if (locationimage)
     return (
       <>

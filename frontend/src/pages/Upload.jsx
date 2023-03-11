@@ -17,7 +17,6 @@ function UploadPage() {
   });
 
 
-
   async function handleSubmit() {
     console.log("onsubmit");
     const sendingData = new FormData()
