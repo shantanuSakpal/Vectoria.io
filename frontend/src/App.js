@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/navbar";
 import { Home } from "./pages/Home";
 import { Landing } from "./pages/Landing";
 import UploadPage from "./pages/Upload";
@@ -11,23 +12,20 @@ import UploadPage from "./pages/Upload";
 const App = () => {
 
   return (
-    <div className="p-2  ">
 
-      <Router>
-        {/* <Navbar /> */}
-        <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/upload' element={<UploadPage />} />
 
-        </Routes>
-        <div className="bottom-0 rounded-lg text-center w-full bg-blue">
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/upload' element={<UploadPage />} />
 
-          {/* <Footer /> */}
-        </div>
-      </Router>
+      </Routes>
 
-    </div>
+    </Router>
+
+
 
   )
 };
