@@ -27,7 +27,7 @@ router.get('/user/:user', function (req, res, next) {
 
 // add a new ImageSchema 
 router.post('/',function(req,res,next){
-    console.log(req.body.user);
+    console.log(req.body.id);
     ImageSchema.create(req.body).then(function(element){
         res.send(element);
     }).catch(next);
