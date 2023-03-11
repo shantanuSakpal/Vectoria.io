@@ -7,6 +7,7 @@ import LocationImage from "./pages/LocationImage";
 import LoginPage from "./pages/Login";
 import Profile from "./pages/Profile";
 import UploadPage from "./pages/Upload";
+import UserProfile from "./pages/UserProfile";
 // import Login from "./pages/login/Login";
 // import SignUp from "./pages/login/SignUp";
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='/upload' element={<UploadPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/userprofile/:email' element={<UserProfile />} />
         <Route path='/locationimage/:location' element={<LocationImage />} />
       </Routes>
 
