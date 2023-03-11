@@ -14,10 +14,10 @@ app.use(bodyParser.json())
 app.use(express.json())
 
 app.use('/image', require('./controllers/piccontroller'));
+app.use('/user', require('./controllers/usercontroller'));
 
 app.get('/', (req, res)=>{
     res.send("Working!");
 })
-
 
 app.listen(port, () => console.log(`Server Running  on http://localhost:${port}`))
