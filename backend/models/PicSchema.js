@@ -12,15 +12,12 @@ const ImageSchema = new Schema({
         },
         likes: {
             type: Number,
-            required: true,
         },
         caption:{
             type : String,
-            required : true,
         },
         tags:{
             type : Number,
-            required : true,
         },
 });
 module.exports = mongoose.model('images', ImageSchema)

@@ -6,29 +6,24 @@ const UserSchema = new Schema({
             type : String,
             required: true,
         },
-        rating: {
-            type: Number,
-            required: true
-        },
         email: {
             type: String,
             required: true,
         },
+        rating: {
+            type: Number,
+        },
         location:{
-            type : String,
-            required : true,
+            type : String
         },
         expyr:{
-            type : Number,
-            required : true,
+            type : Number
         },
         images:{
-            type : Array,
-            required : true,
+            type : Array
         },
         tags:{
-            type: Array,
-            required: true,
+            type: Array
         },
 });
 module.exports = mongoose.model('user', UserSchema)
