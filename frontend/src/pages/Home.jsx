@@ -13,7 +13,7 @@ export const Home = () => {
                 {images.map((each) => {
                     console.log(each)
                     return (
-                        <PhotoCard data={each.image.data} caption={each.caption} email={each.email} location={each.location} />
+                        <PhotoCard key={each.id} data={each.image.data} caption={each.caption} email={each.email} location={each.location} />
                     )
                 })}
             </>
