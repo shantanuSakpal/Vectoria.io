@@ -6,6 +6,10 @@ const UserSchema = new Schema({
             type : String,
             required: true,
         },
+        username:{
+            type: String,
+            required :true,
+        },
         email: {
             type: String,
             required: true,
@@ -14,10 +18,12 @@ const UserSchema = new Schema({
             type: Number,
         },
         location:{
-            type : String
+            type : String,
+            required : true,
         },
         expyr:{
-            type : Number
+            type : Number,
+            required: true,
         },
         images:{
             type : Array
