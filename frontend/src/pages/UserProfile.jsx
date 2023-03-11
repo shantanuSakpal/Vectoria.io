@@ -21,9 +21,9 @@ export default function UserProfile() {
     return (
         <div className='flex flex-col justify-center items-center'>
             <p className='text-7xl font-semibold' >{data?.username}</p>
-            <p className='text-xl mt-4 text-slate-400' >{data.location}</p>
-            <p className='text-xl mt-4 text-slate-400' >{data.email}</p>
-            <p className='text-xl mt-4 text-slate-400' >{data.expyr} years of experience</p>
+            <p className='text-xl mt-4 text-slate-400' >{data?.location}</p>
+            <p className='text-xl mt-4 text-slate-400' >{data?.email}</p>
+            <p className='text-xl mt-4 text-slate-400' >{data?.expyr} years of experience</p>
             <div className='bg-red-300 h-80 w-80'>
                 idhar tags aayenge
             </div>

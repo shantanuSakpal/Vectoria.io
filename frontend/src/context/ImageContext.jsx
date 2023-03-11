@@ -9,7 +9,11 @@ export function ImageProvider({children}) {
         isLoading: false,
         isError: false,
         images: [],
+        filterlocation : [],
         locationimage : [],
+        filter :{
+            location: "",
+         } 
     }
     const [ state, dispatch ]= useReducer(reducer, initialstate)
     
@@ -36,12 +40,21 @@ export function ImageProvider({children}) {
             dispatch({tpye: 'API_ERROR'})
         }
     }
+
+    const updateFilterValue = (event) =>{
+        let value = event.target.value;
+        return dispatch({type: 'UPDATE_FILTER_VALUE' ,payload:value})
+    }
+
+    useEffect(()=>{
+        dispatch({type: 'FILTER_JOBS'})
+    },[state.filter])
     
     useEffect(()=>{
         getImages(url)
     },[])
     return (
-        <ImageContext.Provider value={{ ...state, dispatch, getLocationImage}}>
+        <ImageContext.Provider value={{ ...state, dispatch, getLocationImage, updateFilterValue}}>
             {children}
         </ImageContext.Provider>
     )

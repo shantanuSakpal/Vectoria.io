@@ -5,19 +5,24 @@ import UseImages from '../context/ImageContext'
 
 export const Home = () => {
 
-    const { images } = UseImages()
+    const { filterlocation, updateFilterValue } = UseImages()
 
-    if (images !== null || images !== []) {
+    if (filterlocation !== null || filterlocation !== []) {
         return (
             <>
-                <div className='flex flex-wrap'>
-                    {images.map((each) => {
-                        console.log(each)
-                        return (
+                <div className="home-page p-4">
 
-                            <PhotoCard key={each._id} data={each.image.data} caption={each.caption} email={each.email} location={each.location} />
-                        )
-                    })}
+                    <form className='mx-auto w-full text-center ' onSubmit={(e) => e.preventDefault()}>
+                        
+                        <input className=' rounded-lg text-black w-full border-3 h-10 border-gray-300  mb-8 p-2 ' type="text" name="text" placeholder="Search for your favourite location !" onChange={updateFilterValue} />
+                    </form>
+                    <div className='flex flex-wrap'>
+                        {filterlocation.map((each) => {
+                            return (
+                                <PhotoCard key={each._id} photo={each} />
+                            )
+                        })}
+                    </div>
                 </div>
             </>
         )
