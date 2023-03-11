@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const ImageSchema = new Schema({
+        id:{
+            type: String,
+            required: true,
+        },
         location:{
             type : String,
             required: true,
@@ -17,7 +21,7 @@ const ImageSchema = new Schema({
             type : String,
         },
         tags:{
-            type : Number,
+            type : Array,
         },
 });
 module.exports = mongoose.model('images', ImageSchema)
