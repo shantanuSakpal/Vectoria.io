@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 import UseImages from '../context/ImageContext'
+import PhotoCard from '../components/Photo_card'
 
 export default function LocationImage() {
   const location = useParams().location
@@ -16,7 +17,7 @@ export default function LocationImage() {
         return (
             <>
             <NavLink to={`/userprofile/${i.email}`}>
-            {i.email}
+            <PhotoCard data={i.image.data} caption={i.caption} email={i.email} location={i.location} />
             </NavLink>
             </>
         )
