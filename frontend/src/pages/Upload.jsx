@@ -11,17 +11,17 @@ function UploadPage() {
   const [formData, setFormData] = useState({
     caption: "",
     location: "",
-    email: user.email,
     id:uuid(),
+    email: user.email,
     tags: [],
   });
-
-  
 
   function handleSubmit() {
     console.log("onsubmit");
     const sendingData = new FormData()
     sendingData.append("image",file)
+    console.log(user.email)
+    console.log(formData)
     sendingData.append('objectData', JSON.stringify(formData))
 
     fetch("http://localhost:3001/image/imagePost",{
