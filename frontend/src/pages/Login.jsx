@@ -26,7 +26,9 @@ export default function LoginPage() {
         return (
             <>
 
+                <div >
 
+                </div>
                 <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 dark:bg-gray-900 dark:border-gray-900 mx-auto w-fit mt-8">
                     <form className="space-y-6" onSubmit={(e) => {
                         e.preventDefault();

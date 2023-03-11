@@ -10,12 +10,15 @@ export const Home = () => {
     if (images !== null || images !== []) {
         return (
             <>
-                {images.map((each) => {
-                    console.log(each)
-                    return (
-                        <PhotoCard key={each.id} data={each.image.data} caption={each.caption} email={each.email} location={each.location} />
-                    )
-                })}
+                <div className='flex flex-wrap'>
+                    {images.map((each) => {
+                        console.log(each)
+                        return (
+
+                            <PhotoCard key={each._id} data={each.image.data} caption={each.caption} email={each.email} location={each.location} />
+                        )
+                    })}
+                </div>
             </>
         )
     }
