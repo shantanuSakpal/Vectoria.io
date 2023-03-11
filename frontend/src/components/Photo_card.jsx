@@ -14,7 +14,7 @@ function PhotoCard({ data, caption, email, location }) {
         const GetRequest = async () => {
             const res = await fetch(`http://localhost:3001/user/user/one/${email}`)
             const json = await res.json();
-            console.log(json)
+            // console.log(json)
             setUsername(json.username)
         }
         GetRequest()
