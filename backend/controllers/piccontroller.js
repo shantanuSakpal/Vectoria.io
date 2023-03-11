@@ -1,5 +1,7 @@
 const express = require("express")
 const router = express.Router()
+const fs = require("fs");
+const multer = require("multer");
 const  ImageSchema = require("../models/PicSchema.js")
 
 // Get All ImageSchema
@@ -30,6 +32,38 @@ router.post('/',function(req,res,next){
         res.send(element);
     }).catch(next);
 });
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "uploads");
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+});
+
+const upload = multer({ storage: storage });
+
+router.post('/imagePost', upload.single("image") , (req,res)=>{
+    console.log("in image post 2")
+    // console.log(req.body.objectData)
+    console.log(JSON.parse(req.body.objectData))
+    const reqObjectData = JSON.parse(req.body.objectData)
+    console.log(req.file)
+    ImageSchema.create({
+        id:reqObjectData.id,
+        location:reqObjectData.location,
+        caption:reqObjectData.caption,
+        image:{
+            data: fs.readFileSync("uploads/" + req.file.filename),
+            contentType: "image/png"
+        },
+        tags:reqObjectData.tags
+    })
+    .then(function(element){
+        res.send(element);
+    }).catch();
+} )
 
 // update a ImageSchema
 router.put('/:id',function(req,res,next){
