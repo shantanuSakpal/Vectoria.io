@@ -10,10 +10,7 @@ const ImageSchema = new Schema({
             type : String,
             required: true,
         },
-        images: {
-            type: Array,
-            required: true
-        },
+        image : { data:Buffer, contentType : String},
         likes: {
             type: Number,
         },
