@@ -26,16 +26,16 @@ function PhotoCard({ data, caption, email, location }) {
 
 
 
-                <div className="max-w-lg mx-auto w-64 p-2 shadow-md shadow-slate-400 rounded-lg">
+                <div className="max-w-lg mx-auto w-72 p-2 shadow-md shadow-slate-400 rounded-lg">
                     <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
-                        <div >
-                            <img className="rounded-t-lg bg-cover  " src={`data:image/png;base64,${base64String}`} alt="" />
+                        <div className='bg-cover overflow-hidden' >
+                            <img className="rounded-t-lg" src={`data:image/png;base64,${base64String}`} alt="" />
                         </div>
                         <div className="p-5">
                             <div>
                                 <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2">{caption}</h5>
                             </div>
-                            <p className='text-sm'>By {email}</p>
+                            <p className='text-sm'>By {username}</p>
                             <p>at {location}</p>
 
                         </div>

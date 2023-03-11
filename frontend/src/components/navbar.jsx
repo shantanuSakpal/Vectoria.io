@@ -23,10 +23,10 @@ export const Navbar = () => {
                     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
                         <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-black dark:border-gray-700">
                             <li>
-                                <NavLink href="#" onClick={signOut} className="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 hover:text-white" aria-current="page">Home</NavLink>
+                                <NavLink to="/home" onClick={signOut} className="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 hover:text-white" aria-current="page">Home</NavLink>
                             </li>
                             <li>
-                                <NavLink href="#" className="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 hover:text-white" aria-current="page">Photographers Nearby</NavLink>
+                                <NavLink to="" className="block py-2 pl-3 pr-4 text-white bg-gratext-gray-400 rounded md:bg-transparent md:text-gray-400 md:p-0 hover:text-white" aria-current="page">Photographers Nearby</NavLink>
                             </li>
 
                             <li>
