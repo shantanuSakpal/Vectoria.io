@@ -10,12 +10,15 @@ function UploadPage() {
     caption: "",
     location: "",
     id:uuid(),
+    email:"neilpshukla221203@gmail.com",
     tags: [],
   });
 
   
+  
+  
 
-  function handleSubmit() {
+  async function handleSubmit() {
     console.log("onsubmit");
     const sendingData = new FormData()
     sendingData.append("image",file)

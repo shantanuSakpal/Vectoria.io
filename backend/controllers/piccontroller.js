@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const fs = require("fs");
+const axios = require('axios');
+const fs = require('fs');
 const multer = require("multer");
 const  ImageSchema = require("../models/PicSchema.js")
 
@@ -33,6 +34,26 @@ router.post('/',function(req,res,next){
     }).catch(next);
 });
 
+
+async function query(filename) {
+    const data = fs.readFileSync("uploads/" + filename)
+    const response = await axios.post(
+      'https://api-inference.huggingface.co/models/google/vit-base-patch16-224',
+      data,
+      {
+        headers: { Authorization: 'Bearer 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' },
+      }
+    );
+    const result = response.data.map((each)=>{
+        return(
+            each.label
+        )
+    })
+    return result;
+  }
+
+
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, "uploads");
@@ -44,21 +65,29 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post('/imagePost', upload.single("image") , (req,res)=>{
-    console.log("in image post 2")
-    // console.log(req.body.objectData)
-    console.log(JSON.parse(req.body.objectData))
+router.post('/imagePost', upload.single("image") , async (req,res)=>{
+    console.log("in image post")
     const reqObjectData = JSON.parse(req.body.objectData)
-    console.log(req.file)
+    const modelTags = await query(req.file.filename)
+
+    // console.log(modelTags)
+
+    // console.log("in image post 2")
+    // console.log(req.body.objectData)
+    // console.log(JSON.parse(req.body.objectData))
+    
+    // console.log(req.file)
     ImageSchema.create({
         id:reqObjectData.id,
         location:reqObjectData.location,
+        email:reqObjectData.email,
+        time:new Date().toLocaleString('en-US', {timeZone: "Asia/Kolkata" ,hour: 'numeric', minute: 'numeric', hour12: true }),
         caption:reqObjectData.caption,
         image:{
             data: fs.readFileSync("uploads/" + req.file.filename),
             contentType: "image/png"
         },
-        tags:reqObjectData.tags
+        tags:modelTags.concat(reqObjectData.tags)
     })
     .then(function(element){
         res.send(element);
