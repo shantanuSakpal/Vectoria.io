@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import ApnaButton from "../components/ApnaButton";
 import clipIcon from "../assets/paperclip.svg";
 import uuid from 'react-uuid';
+import UserAuth from "../context/UserAuth";
 
 function UploadPage() {
   const [file, setFile] = useState();
+  const {user} = UserAuth()
 
   const [formData, setFormData] = useState({
     caption: "",
     location: "",
+    email: user.email,
     id:uuid(),
     tags: [],
   });

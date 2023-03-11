@@ -18,6 +18,13 @@ router.get('/id/:id', function (req, res, next) {
     }).catch(next);
 });
 
+//Get Images By Location
+router.get('/location/:location', function (req, res, next) {
+    ImageSchema.find({location: req.params.location}).then(function(element){
+        res.send(element);
+    }).catch(next);
+});
+
 //Get ImageSchema By User
 router.get('/user/:user', function (req, res, next) {
     ImageSchema.find({user: req.params.user}).then(function(element){
@@ -54,6 +61,7 @@ router.post('/imagePost', upload.single("image") , (req,res)=>{
         id:reqObjectData.id,
         location:reqObjectData.location,
         caption:reqObjectData.caption,
+        email:reqObjectData.email,
         image:{
             data: fs.readFileSync("uploads/" + req.file.filename),
             contentType: "image/png"

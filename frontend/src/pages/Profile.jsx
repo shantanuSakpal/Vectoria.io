@@ -1,5 +1,6 @@
 import React, { useRef, useContext, createContext } from 'react'
 import UserAuth from '../context/UserAuth';
+import UploadPage from './Upload';
 
 export default function Profile() {
     const location = useRef();
@@ -33,19 +34,20 @@ export default function Profile() {
                 </div>
                 <div className="profile-div">
                     <h6>Username:</h6>
-                    <input type="text" ref={username} />
+                    <input required={true} type="text" ref={username} />
                 </div>
                 <div className="profile-div">
                     <h6>Location:</h6>
-                    <input type="text" ref={location} />
+                    <input required={true} type="text" ref={location} />
                 </div>
                 <div className="profile-div">
                     <h6>Years of Experience</h6>
-                    <input type="text" ref={yr} />
+                    <input required={true} type="text" ref={yr} />
                 </div>
                 <div className="prfile-div">
                     <button onClick={PostRequest}>Create Profile!</button>
                 </div>
+                <UploadPage/>
             </div>
         </>
     )
