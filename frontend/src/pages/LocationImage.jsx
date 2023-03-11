@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
 import UseImages from '../context/ImageContext'
 
 export default function LocationImage() {
@@ -12,7 +12,15 @@ export default function LocationImage() {
   if(locationimage)
   return (
     <>
-    {locationimage.caption}
+    {locationimage.map((i)=>{
+        return (
+            <>
+            <NavLink to={`/userprofile/${i.email}`}>
+            {i.email}
+            </NavLink>
+            </>
+        )
+    })}
     </>
   )
 }

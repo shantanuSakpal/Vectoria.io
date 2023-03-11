@@ -17,8 +17,9 @@ router.get('/id/:id', function (req, res, next) {
 });
 
 //Get UserSchema By User
-router.get('/user/:user', function (req, res, next) {
-    UserSchema.find({user: req.params.user}).then(function(element){
+router.get('/user/:email', function (req, res, next) {
+    console.log(req.params.email)
+    UserSchema.find({email: req.params.email}).then(function(element){
         res.send(element);
     }).catch(next);
 });
