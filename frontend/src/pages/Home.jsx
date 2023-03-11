@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react'
 import { AddImageBtn } from '../components/AddImageBtn'
-import ImageCard from '../components/imageCard'
+import PhotoCard from '../components/Photo_card'
 import UseImages from '../context/ImageContext'
 
 export const Home = () => {
 
     const { images } = UseImages()
-    console.log(images)
+
     if (images !== null || images !== []) {
         return (
             <>
                 {images.map((each) => {
-                    console.log(each.location)
+                    console.log(each)
                     return (
-                        <ImageCard data={each.image.data} something={each} location={each.location} />
+                        <PhotoCard data={each.image.data} caption={each.caption} email={each.email} location={each.location} />
                     )
                 })}
             </>
