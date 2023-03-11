@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { AddImageBtn } from '../components/AddImageBtn'
-import PhotoCard from '../components/Photo_card'
+import Gallery from '../components/gallery'
 import UseImages from '../context/ImageContext'
 
 export const Home = () => {
@@ -10,12 +10,12 @@ export const Home = () => {
     if (images !== null || images !== []) {
         return (
             <>
-                <div className='flex flex-wrap'>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {images.map((each) => {
                         console.log(each)
                         return (
 
-                            <PhotoCard key={each._id} data={each.image.data} caption={each.caption} email={each.email} location={each.location} />
+                            <Gallery key={each._id} photo={each} />
                         )
                     })}
                 </div>

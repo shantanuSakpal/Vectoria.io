@@ -1,63 +1,87 @@
-import React, { useRef, useState } from 'react'
-import UserAuth from '../context/UserAuth';
-import { Navigate, Link, NavLink } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
+import { auth, provider } from '../firebase/firebase_config';
 
-export default function Signup() {
-    const { user, signup } = UserAuth();
-    const created_uname = useRef();
-    const created_pwd = useRef();
-    const con_created_pwd = useRef();
+const Login = () => {
+    const [email, setemail] = useState('');
+    const [password, setpassword] = useState('');
+    const [confirmpass, setconfirmpassword] = useState('');
 
-    const [passmatch, setPassmatch] = useState(true);
-    const [createduser, setCreateduser] = useState(true);
-    const [createduser1, setCreateduser1] = useState(false);
 
-    async function handleSignup() {
-        if (con_created_pwd.current.value !== created_pwd.current.value) {
-            setPassmatch(false)
-            console.log("Password not matching")
+
+    const signUp = (e) => {
+        //todo
+        e.preventDefault();
+        if (password == confirmpass) {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+
+                    console.log("success")
+                }
+                ).catch((error) => {
+
+                    console.log(error)
+
+                })
         }
-        else
-            try {
-                await signup(created_uname.current.value, created_pwd.current.value);
-                setCreateduser1(true);
-                <Navigate to='/login' />
-            } catch (e) {
-                console.log(e)
-                setCreateduser(false)
-            }
+
     }
-    if (user)
-        <Navigate to='/' />
-    else
-        return (
-            <div className="mx-auto w-fit">
-                <div
-                    className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 dark:bg-gray-900 dark:border-gray-900">
-                    <form className="space-y-6" action="#">
-                        <h3 className="text-xl font-medium text-gray-900 dark:text-white">Sign Up To Explore The World Of Photography</h3>
-                        <div>
-                            <label for="email" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Your email</label>
-                            <input type="email" name="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" id="uname" ref={created_uname} required={true} />
-                        </div>
-                        <div>
-                            <label for="password" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Your password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" ref={created_pwd} required={true} />
-                        </div>
-                        <div>
-                            <label for="password" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Confirm password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" ref={con_created_pwd} required={true} />
-                        </div>
 
-                        <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</button>
-                        <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                            Already have an account ? <NavLink to="/login" className="text-blue-700 hover:underline ">Log In</NavLink>
-                        </div>
-                    </form>
-                </div>
 
+    return (
+        <div className='h-screen flex  justify-center'>
+            <div className="auth-card">
+
+                <h1 className='title text-lg content-center'>Sign-Up</h1>
+                <form onSubmit={signUp} className='flex flex-col justify-around p-8'>
+
+                    <div className='txt-field '>
+
+                        <label htmlFor="email">Email</label>
+                        <input type={'email'} required placeholder='Enter your email' value={email} onChange={(e) => setemail(e.target.value)} />
+
+
+
+
+                    </div >
+
+                    <div className='txt-field'>
+                        <label htmlFor="password">Password</label>
+
+                        <input type={'password'} required placeholder='Enter your password' value={password} onChange={(e) => setpassword(e.target.value)} />
+
+                    </div>
+
+                    <div className='txt-field'>
+                        <label htmlFor="password">Confirm Password</label>
+
+                        <input type={'password'} required placeholder='Enter your password again' value={confirmpass} onChange={(e) => setconfirmpassword(e.target.value)} />
+
+                    </div>
+                    {
+                        password != confirmpass && (
+                            <p className='text-sm text-red-600 text-center mb-2'>Passwords do not match !</p>
+                        )
+
+
+                    }
+
+                    <div className='flex justify-center'>
+                        <button className="block pl-3 pr-4 ease-out duration-200  text-white rounded-lg text-lg py-1  bg-purple-700 border-4  hover:border-4 hover:border-purple-700 hover:bg-gray-900 " type='submit'>Sign-Up</button>
+
+                    </div>
+
+                    <div className='mt-4 text-center' >
+                        <NavLink to={'/login'} className='text-base'> Already have an account? <br /><span className='text-blue-600 font-bold'>Log In</span> instead.</NavLink>
+
+                    </div>
+
+
+                </form>
             </div>
-        )
+        </div>
+    )
 }
 
-
+export default Login
