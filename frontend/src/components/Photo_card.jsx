@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 
 function PhotoCard({photo}) {
     console.log(photo)
-    const likes = photo.like
     const [username, setUsername] = useState(null)
     let base64String
     if (photo.image.data) {
