@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { BiLike } from 'react-icons/bi'
 import { NavLink } from 'react-router-dom'
 
 function PhotoCard({photo}) {
     console.log(photo)
     const [username, setUsername] = useState(null)
     let base64String
-    if (photo.image.data) {
+    if (photo?.image.data) {
         base64String = btoa(
             String.fromCharCode(...new Uint8Array(photo.image.data.data))
         )
@@ -13,13 +14,17 @@ function PhotoCard({photo}) {
 
 
     useEffect(() => {
+        
         const GetRequest = async () => {
             const res = await fetch(`http://localhost:3001/user/user/one/${photo.email}`)
             const json = await res.json();
             setUsername(json.username)
         }
-        GetRequest()
-    }, [])
+
+        if(photo){
+            GetRequest()
+        }
+    }, [photo])
 
     function handleLike(){
         console.log(photo.likes)
@@ -91,14 +96,11 @@ function PhotoCard({photo}) {
                         <div >
 
 
-                            <button onClick={handleLike}>Like</button>
+                            <button onClick={handleLike}><BiLike className='w-7 h-7 ' /></button>
                             <NavLink to={`/locationimage/${photo.location}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center my-1" >
                                 See More From {photo.location}
                             </button></NavLink>
-                            <NavLink to={`/locationimage/${photo.location}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-3 py-2 text-center inline-flex items-center my-1 text-sm" >
-                                See More From This Photographer
-                            </button>
-                            </NavLink>
+                            
                         </div>
                     </div>
 

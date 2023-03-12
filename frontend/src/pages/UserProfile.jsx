@@ -71,9 +71,8 @@ export default function UserProfile() {
                 <h1 className='font-bold text-3xl mx-4'>Recent Works</h1>
                 <div className="grid grid-cols-3 gap-4">
                     {imagesData?.map((each) => {
-
                         return (
-                            <PhotoCard key={each._id} data={each.image.data} caption={each.caption} email={each.email} location={each.location} />
+                            <PhotoCard key={each._id} photo={each} />
                         )
                     })}
                 </div>
