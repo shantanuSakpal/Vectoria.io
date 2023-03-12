@@ -17,7 +17,7 @@ export default function LocationImage() {
           {locationimage.map((i, id) => {
             return (
               <>
-              <Navbar/>
+                
                 <NavLink to={`/userprofile/${i.email}`}>
                   <LocGallery key={i.id} photo={i} />
                 </NavLink>

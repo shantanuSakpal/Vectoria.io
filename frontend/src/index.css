@@ -23,6 +23,18 @@ body{
     background-size: cover;
 }
 
+.title-land{
+    font-family: 'vonique-bold', 'Arial Narrow', Arial, sans-serif;
+}
+
+.hider{
+    height: 80vh;
+    width: 100vw;
+    position: absolute;
+    top: 160vh;
+    backdrop-filter: blur(10px);
+
+}
 @media (min-aspect-ratio:16/9){
     .back-video{
         width: 100%;
@@ -34,8 +46,4 @@ body{
         width: auto;
         height: 100%;
     }
-}
-
-.title-land{
-    font-family: 'vonique-bold', 'Arial Narrow', Arial, sans-serif;
 }
