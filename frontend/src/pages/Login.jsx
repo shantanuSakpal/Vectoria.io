@@ -29,13 +29,13 @@ export default function LoginPage() {
                 <div >
 
                 </div>
-                <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 dark:bg-gray-900 dark:border-gray-900 mx-auto w-fit mt-8">
+                <div className="bg-gray-800 shadow-md  rounded-lg max-w-sm p-4 sm:p-6 lg:p-8  mx-auto w-fit mt-8">
                     <form className="space-y-6" onSubmit={(e) => {
                         e.preventDefault();
                         handleLogin(uname.current.value, pwd.current.value)
                     }}
                     >
-                        <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 dark:bg-gray-900 dark:border-gray-900">
+                        <div className="bg-gray-700 shadow-md  rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 ">
                             <h3 className="text-xl text-center font-medium text-gray-900 dark:text-white mb-7">Log In The World Of <span className='font-vonique text-3xl text-center'>Photography</span> </h3>
                             {logged ?
                                 <p className='text-red-500'>Wrong Credentials</p>

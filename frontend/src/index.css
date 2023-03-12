@@ -31,7 +31,7 @@ body{
     height: 80vh;
     width: 100vw;
     position: absolute;
-    top: 160vh;
+    top: 140vh;
     backdrop-filter: blur(10px);
 
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ApnaButton from "../components/ApnaButton";
+import toast, { Toaster } from 'react-hot-toast';
 import clipIcon from "../assets/paperclip.svg";
 import uuid from 'react-uuid';
 import UserAuth from "../context/UserAuth";
@@ -30,6 +31,7 @@ function UploadPage() {
       method: "POST",
       body: sendingData
     }).then((res) => {
+      toast.success('Successfully uploaded!')
       console.log(res)
     })
   }
@@ -37,6 +39,7 @@ function UploadPage() {
   return (
     <>
       <Navbar />
+      <Toaster/>
       <div className=" min-h-screen flex items-center">
         <div className="  w-full flex justify-center items-center">
           <div className="bg-slate-200 w-[24em] h-[30em] flex justify-center items-center border-2 border-gray-400 rounded-3xl">

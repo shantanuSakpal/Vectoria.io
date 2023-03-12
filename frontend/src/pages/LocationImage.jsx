@@ -13,6 +13,7 @@ export default function LocationImage() {
   if (locationimage)
     return (
       <>
+      <Navbar/>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2">
           {locationimage.map((i, id) => {
             return (
