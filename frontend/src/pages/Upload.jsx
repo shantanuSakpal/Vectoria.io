@@ -13,7 +13,6 @@ function UploadPage() {
     location: "",
     id: uuid(),
     email: user.email,
-    email: "neilpshukla221203@gmail.com",
     tags: [],
   });
 
@@ -22,7 +21,7 @@ function UploadPage() {
     console.log("onsubmit");
     const sendingData = new FormData()
     sendingData.append("image", file)
-    console.log(user.email)
+    // console.log(user.email)
     console.log(formData)
     sendingData.append('objectData', JSON.stringify(formData))
 
