@@ -3,6 +3,7 @@ import ApnaButton from '../components/ApnaButton';
 import UserAuth from '../context/UserAuth';
 import UploadPage from './Upload';
 import uuid from 'react-uuid';
+import { Navbar } from '../components/navbar';
 
 export default function Profile() {
     const location = useRef();
@@ -32,6 +33,7 @@ export default function Profile() {
 
     return (
         <>
+        <Navbar/>
             <div className="flex flex-col justify-center items-center ">
                 <div className='bg-slate-100 px-24 mt-10 py-8 rounded-3xl'>
                     <h3 className='text-6xl font-semibold p-5'>Profile</h3>

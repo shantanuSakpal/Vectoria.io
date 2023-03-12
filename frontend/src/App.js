@@ -7,7 +7,6 @@ import { Landing } from "./pages/Landing";
 import LocationImage from "./pages/LocationImage";
 import LoginPage from "./pages/Login";
 import News from "./pages/News";
-import { NearMe } from "./pages/map";
 import Profile from "./pages/Profile";
 import Signup from "./pages/SignUp";
 import UploadPage from "./pages/Upload";
@@ -20,7 +19,6 @@ const App = () => {
   return (
 
     <Router>
-      <Navbar />
         <Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/home' element={<Home />} />
@@ -30,7 +28,7 @@ const App = () => {
           <Route path='/profile' element={<Profile />} />
           <Route path='/news' element={<News/>} />
           <Route path='/allphotographers' element={<AllPhotographers/>} />
-          <Route path='/nearme' element={<NearMe />} />
+          <Route path='/nearme' element={<AllPhotographers />} />
           <Route path='/userprofile/:email' element={<UserProfile />} />
           <Route path='/locationimage/:location' element={<LocationImage />} />
         </Routes>

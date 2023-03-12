@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { Navbar } from '../components/navbar'
 
 export default function News() {
     const [newsdata, setNewsData] = useState()
@@ -14,6 +15,8 @@ export default function News() {
     },[])
     if(newsdata)
     return (
+        <>
+        <Navbar/>
         <div className='flex w-full items-center justify-center'>
             <div className='flex flex-wrap justify-between w-[80%]'>
             {newsdata.map((i)=>{
@@ -28,5 +31,6 @@ export default function News() {
             })}
             </div>
         </div>
+            </>
     )
 }

@@ -3,6 +3,7 @@ import ApnaButton from "../components/ApnaButton";
 import clipIcon from "../assets/paperclip.svg";
 import uuid from 'react-uuid';
 import UserAuth from "../context/UserAuth";
+import { Navbar } from "../components/navbar";
 
 function UploadPage() {
   const [file, setFile] = useState();
@@ -34,6 +35,8 @@ function UploadPage() {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className=" min-h-screen flex items-center">
       <div className="  w-full flex justify-center items-center">
         <div className="bg-slate-200 w-[24em] h-[30em] flex justify-center items-center border-2 border-gray-400 rounded-3xl">
@@ -46,7 +49,7 @@ function UploadPage() {
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}
-            />
+              />
           </label>
         </div>
       </div>
@@ -62,7 +65,7 @@ function UploadPage() {
               caption: e.target.value
             }
           })}
-        />
+          />
         <label className="p-2 text-xl mt-5 text-center">Location</label>
         <input
           className="w-80 rounded-md p-2 bg-slate-200"
@@ -86,10 +89,11 @@ function UploadPage() {
               tags: e.target.value.split(',')
             }
           })}
-        />
+          />
         <ApnaButton text="Submit" onClick={() => handleSubmit()} />
       </div>
     </div>
+          </>
   );
 }
 

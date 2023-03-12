@@ -3,11 +3,16 @@ import { useParams } from 'react-router-dom'
 import PhotoCard from '../components/Photo_card'
 import UseImages from '../context/ImageContext'
 import { FcLike } from "react-icons/fc"
+import {NavLink} from 'react-router-dom'
+import UserAuth from '../context/UserAuth'
+import { Navbar } from '../components/navbar'
+
 export default function UserProfile() {
     const useremail = useParams().email
     const [data, setData] = useState()
     const [imagesData, setImagesData] = useState()
     const [userTags, setuserTags] = useState()
+    const {logout} = UserAuth()
 
     function removeDuplicates(arr) {
         return arr.filter((item,
@@ -48,6 +53,7 @@ export default function UserProfile() {
 
     return (
         <>
+        <Navbar/>
             <div className="max-w-screen-lg mx-auto py-8">
                 <div className="flex items-center justify-center mb-8">
                     <img
@@ -76,7 +82,7 @@ export default function UserProfile() {
                         )
                     })}
                 </div>
-
+                <button type="button" onClick={logout} class="my-4 ml-4 text-white bg-gradient-to-r from-gray-700 to-black hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"><NavLink to='/' title='Signout' className="block width-10 py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:text-gray-200 md:p-0 hover:text-white" aria-current="page">Signout</NavLink></button>
             </div>
 
 

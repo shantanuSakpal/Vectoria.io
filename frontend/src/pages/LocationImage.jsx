@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 import UseImages from '../context/ImageContext'
 import LocGallery from '../components/locGallery'
+import { Navbar } from '../components/navbar'
 
 export default function LocationImage() {
   const location = useParams().location
@@ -16,6 +17,7 @@ export default function LocationImage() {
           {locationimage.map((i, id) => {
             return (
               <>
+              <Navbar/>
                 <NavLink to={`/userprofile/${i.email}`}>
                   <LocGallery key={i.id} photo={i} />
                 </NavLink>
