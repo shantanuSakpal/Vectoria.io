@@ -14,19 +14,19 @@ export default function News() {
     },[])
     if(newsdata)
     return (
-        <>
-        {newsdata.map((i)=>{
-            return(
-                <>
-                <a href={i.url} target="_blank">
-                <h3>Title</h3>
-                <p>{i.title}</p>
-                <h3>Content</h3>
-                <p>{i.content}</p>
-                </a>
-                </>
-            )
-        })}
-        </>
+        <div className='flex w-full items-center justify-center'>
+            <div className='flex flex-wrap justify-between w-[80%]'>
+            {newsdata.map((i)=>{
+                return(
+                    <div className='border-2 border-black mt-5 flex flex-col justify-content items-center text-center p-10 w-[30em]'>
+                        <a className='' href={i.url} target="_blank">
+                        <p className='my-3 text-2xl font-semibold' >{i.title}</p>
+                        <p className='my-3 text-lg' >{i.content}</p>
+                        </a>
+                    </div>
+                )
+            })}
+            </div>
+        </div>
     )
 }
