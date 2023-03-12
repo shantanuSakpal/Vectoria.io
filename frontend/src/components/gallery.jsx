@@ -10,7 +10,7 @@ const Gallery = ({ photo }) => {
             String.fromCharCode(...new Uint8Array(photo.image.data.data))
         )
     }
-    console.log(photo)
+    console.log("this is photo", photo)
     useEffect(() => {
         const GetRequest = async () => {
             const res = await fetch(`http://localhost:3001/user/user/one/${photo.email}`)
@@ -98,6 +98,7 @@ const Gallery = ({ photo }) => {
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900 text-white transition duration-300">
                         <h4 className='text-3xl'>By <span className='font-bold'>{username}</span> at  <span className='font-bold'>{photo.location}</span></h4>
                         <button className='p-1' onClick={handleLike}><BiLike className='w-7 h-7 ' /></button> {like}<br />
+                        
                         <NavLink to={`/locationimage/${photo.location}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center my-1" >
                             Explore {photo.location}
                         </button></NavLink>

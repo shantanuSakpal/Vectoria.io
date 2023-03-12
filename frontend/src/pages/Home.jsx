@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Gallery from '../components/gallery'
 import UseImages from '../context/ImageContext'
 import { AddImageBtn } from '../components/AddImageBtn'
+import { Navbar } from '../components/navbar'
 export const Home = () => {
 
     const { filterlocation, updateFilterValue } = UseImages()
@@ -9,7 +10,7 @@ export const Home = () => {
     if (filterlocation !== null || filterlocation !== []) {
         return (
             <>
-
+                <Navbar/>
                 <div className='min-h-screen'>
 
                     <h2 className='capitalize mx-5 text-3xl  font-extrabold'>Find the best Photographers near you !</h2>

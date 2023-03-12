@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import PhotoCard from '../components/Photo_card'
 import UseImages from '../context/ImageContext'
 import { FcLike } from "react-icons/fc"
+import { Navbar } from '../components/navbar'
 export default function UserProfile() {
     const useremail = useParams().email
     const [data, setData] = useState()
@@ -40,14 +41,15 @@ export default function UserProfile() {
 
         });
     }
-    console.log(totalLikes)
 
     useEffect(() => {
         GetRequest()
     }, [])
 
+
     return (
         <>
+            <Navbar />
             <div className="max-w-screen-lg mx-auto py-8">
                 <div className="flex items-center justify-center mb-8">
                     <img
@@ -73,6 +75,18 @@ export default function UserProfile() {
                     {imagesData?.map((each) => {
                         return (
                             <PhotoCard key={each._id} photo={each} />
+                        )
+                    })}
+                </div>
+                <h4 className='font-bold text-xl m-2'>Tags:</h4>
+                <div className="w-full flex flex-wrap">
+                    {userTags?.map((each) => {
+                        return (
+                            <>
+                                <div className='bg-gray-300 text-black rounded-full m-2 px-2 py-1'>
+                                    {each}
+                                </div>
+                            </>
                         )
                     })}
                 </div>
