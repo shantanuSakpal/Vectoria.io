@@ -85,7 +85,7 @@ const Gallery = ({ photo }) => {
 
             <div
                 key={photo._id}
-                className="relative overflow-hidden rounded-md shadow-lg aspect-w-3 aspect-h-4"
+                className="relative overflow-hidden rounded-3xl  aspect-w-3 aspect-h-4 shadow-md shadow-gray-500 hover:shadow-lg hover:shadow-gray-600"
                 onMouseEnter={() => setHoveredPhoto(photo)}
                 onMouseLeave={() => setHoveredPhoto(null)}
             >
@@ -95,16 +95,14 @@ const Gallery = ({ photo }) => {
                     className="w-full h-full object-cover"
                 />
                 {hoveredPhoto === photo && (
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white transition duration-300">
-                        <p className="text-lg font-bold">{photo.title}</p>
-                        <p className="text-lg">{`Photographer: ${photo.email}`}</p>
-                        <p className="text-lg">{`Location: ${photo.location}`}</p>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900 text-white transition duration-300">
+                        <h4 className='text-3xl'>By <span className='font-bold'>{username}</span> at  <span className='font-bold'>{photo.location}</span></h4>
                         <button className='p-1' onClick={handleLike}><BiLike className='w-7 h-7 ' /></button> {like}<br />
                         <NavLink to={`/locationimage/${photo.location}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center my-1" >
-                            See More From {photo.location}
+                            Explore {photo.location}
                         </button></NavLink>
                         <NavLink to={`/userprofile/${photo.email}`}> <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-3 py-2 text-center inline-flex items-center my-1 text-sm" >
-                            See More From This Photographer
+                            More by {username}
                         </button>
                         </NavLink>
                     </div>
