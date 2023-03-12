@@ -5,7 +5,7 @@ function PhotoCard({photo}) {
     console.log(photo)
     const [username, setUsername] = useState(null)
     let base64String
-    if (photo.image.data) {
+    if (photo?.image.data) {
         base64String = btoa(
             String.fromCharCode(...new Uint8Array(photo.image.data.data))
         )
@@ -13,13 +13,17 @@ function PhotoCard({photo}) {
 
 
     useEffect(() => {
+        
         const GetRequest = async () => {
             const res = await fetch(`http://localhost:3001/user/user/one/${photo.email}`)
             const json = await res.json();
             setUsername(json.username)
         }
-        GetRequest()
-    }, [])
+
+        if(photo){
+            GetRequest()
+        }
+    }, [photo])
 
     function handleLike(){
         console.log(photo.likes)
