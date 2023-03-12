@@ -20,6 +20,13 @@ router.get('/id/:id', function (req, res, next) {
     }).catch(next);
 });
 
+// Get images by email
+router.get('/email/:email', function (req, res, next) {
+    ImageSchema.find({email: req.params.email}).then(function(element){
+        res.send(element);
+    }).catch(next);
+});
+
 
 //Get Images By Location
 router.get('/location/:location', function (req, res, next) {
