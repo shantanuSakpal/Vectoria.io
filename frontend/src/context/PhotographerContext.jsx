@@ -9,10 +9,11 @@ export function PhotographerProvider({ children }) {
         isLoading: false,
         isError: false,
         puser: [],
-        filterlocation: [],
+        filterpuser: [],
         locationpuser: [],
         filter: {
-            location: "",
+            // location: "",
+            tags : "",
         }
     }
     const [state, dispatch] = useReducer(reducer, initialstate)

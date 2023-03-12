@@ -20,28 +20,49 @@ export default function PhotographerFunctions(state, action) {
             return {
                 ...state,
                 isLoading: false,
-                filterlocation: action.payload,
                 puser: action.payload,
+                filterpuser: action.payload,
             }
         case 'UPDATE_FILTER_VALUE':
             return {
                 ...state,
                 filter:
                 {
-                    filterlocation: action.payload
+                    filterpuser: action.payload
                 }
             }
-        case 'FILTER_PUSER':
+        case 'FILTER_PUSER': 
             let { puser, filter } = state;
             let filtered = [...puser]
 
             filtered = filtered.filter((i) => {
-                return i.location.toLowerCase().includes(filter.filterlocation.toLowerCase());
+                return i.tags.toLowerCase().includes(filter.filterpuser.toLowerCase());
             })
             console.log(state.filterlocation)
             return {
                 ...state,
-                filterlocation: filtered
+                filterpuser: filtered
             }
+        // case 'FILTER_PUSER':
+        //     let { puser } = state;
+        //     let filtered1 = [...puser]
+
+        //     const { location, tags } = state.filter;
+        //     console.log(tags)
+        //     if (location) {
+        //         filtered1 = filtered1.filter((i) => {
+        //             return i.name.toLowerCase().includes(location);
+        //         })
+        //     }
+        //     if (tags) {
+        //         if (tags.toLowerCase() != 'all')
+        //             filtered1 = filtered1.filter((i) => {
+        //                 return i.tags === tags;
+        //             })
+        //     }
+        //     return {
+        //         ...state,
+        //         filterpuser: filtered1
+        //     }
     }
 }
