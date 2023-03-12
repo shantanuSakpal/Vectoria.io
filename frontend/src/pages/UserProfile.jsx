@@ -24,11 +24,11 @@ export default function UserProfile() {
         setImagesData(json2)
         var userTags = []
         json2.forEach(element => {
-            // console.log(element.tags)
+
             console.log(userTags.push(...element.tags))
         });
         removeDuplicates(userTags)
-        console.log(userTags)
+        console.log("these are tags", userTags)
         setuserTags(userTags)
 
         // console.log("json 2 is ",json2)
