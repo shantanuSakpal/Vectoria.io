@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import { UserProvider } from './context/UserAuth';
 import {ImageProvider} from './context/ImageContext'
+import {PhotographerProvider} from './context/PhotographerContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <UserProvider>
     <ImageProvider>
+      <PhotographerProvider>
     <App />
+      </PhotographerProvider>
     </ImageProvider>
   </UserProvider>
 );

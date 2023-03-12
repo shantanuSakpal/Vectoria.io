@@ -47,7 +47,7 @@ export function ImageProvider({children}) {
     }
 
     useEffect(()=>{
-        dispatch({type: 'FILTER_JOBS'})
+        dispatch({type: 'FILTER_IMAGES'})
     },[state.filter])
     
     useEffect(()=>{

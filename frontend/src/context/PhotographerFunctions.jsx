@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ImageFunctions(state, action) {
+export default function PhotographerFunctions(state, action) {
     switch (action.type) {
         case 'SET_LOADING':
             return {
@@ -21,13 +21,7 @@ export default function ImageFunctions(state, action) {
                 ...state,
                 isLoading: false,
                 filterlocation: action.payload,
-                images: action.payload,
-            }
-        case 'SET_LOCATION_IMAGE':
-            return {
-                ...state,
-                isLoading: false,
-                locationimage: action.payload,
+                puser: action.payload,
             }
         case 'UPDATE_FILTER_VALUE':
             return {
@@ -37,9 +31,9 @@ export default function ImageFunctions(state, action) {
                     filterlocation: action.payload
                 }
             }
-        case 'FILTER_IMAGES':
-            let { images, filter } = state;
-            let filtered = [...images]
+        case 'FILTER_PUSER':
+            let { puser, filter } = state;
+            let filtered = [...puser]
 
             filtered = filtered.filter((i) => {
                 return i.location.toLowerCase().includes(filter.filterlocation.toLowerCase());
