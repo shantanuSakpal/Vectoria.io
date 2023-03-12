@@ -18,7 +18,7 @@ export const Home = () => {
 
                         <input className=' rounded-lg text-black w-1/3 bg-gray-200 border-3 border-gray-300  m-4 p-2 text-lg' type="text" name="text" placeholder="Search for your favourite location !" onChange={updateFilterValue} />
                     </form>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 poverflow-hidden">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 poverflow-hidden p-3">
                         {filterlocation.map((each) => {
                             return (
                                 <Gallery key={each._id} photo={each} />

@@ -7,7 +7,6 @@ import {NavLink} from 'react-router-dom'
 import UserAuth from '../context/UserAuth'
 import { Navbar } from '../components/navbar'
 
-import { Navbar } from '../components/navbar'
 export default function UserProfile() {
     const useremail = useParams().email
     const [data, setData] = useState()
