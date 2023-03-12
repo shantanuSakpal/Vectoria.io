@@ -30,7 +30,7 @@ const UserSchema = new Schema({
             type : Array
         },
         tags:{
-            type: Array
+            type: String,
         },
 });
 module.exports = mongoose.model('user', UserSchema)

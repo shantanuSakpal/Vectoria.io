@@ -37,7 +37,7 @@ export default function ImageFunctions(state, action) {
                     filterlocation: action.payload
                 }
             }
-        case 'FILTER_JOBS':
+        case 'FILTER_IMAGES':
             let { images, filter } = state;
             let filtered = [...images]
 
