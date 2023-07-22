@@ -55,7 +55,7 @@ export default function UserProfile() {
     return (
         <>
             <Navbar />
-            <div className='hider text-center '><button type="button" className="mt-36 ml-4 text-white bg-gradient-to-r from-gray-700 to-black hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2">Pay {data?.username} to see more of his amazing work !</button><Checkout /></div>
+            <div className='hider text-center mt-5'><button type="button" className="mt-36 ml-4 text-white bg-gradient-to-r from-gray-700 to-black hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2">Pay {data?.username} to see more of his amazing work !</button><Checkout /></div>
             <div className="max-w-screen-lg mx-auto py-8">
                 <div className="flex items-center justify-center mb-8">
                     <img

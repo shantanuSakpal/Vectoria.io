@@ -28,10 +28,10 @@ body{
 }
 
 .hider{
-    height: 80vh;
+    height: 64vh;
     width: 100vw;
     position: absolute;
-    top: 140vh;
+    top: 130vh;
     backdrop-filter: blur(10px);
 
 }

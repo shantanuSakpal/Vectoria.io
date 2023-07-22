@@ -11,7 +11,7 @@ export default function News() {
             console.log(json.articles)
             setNewsData(json.articles)
         }
-        // GetRequest()
+        GetRequest()
     }, [])
     if (newsdata)
         return (
